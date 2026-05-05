@@ -1,99 +1,16 @@
-游戏内容
-初始空岛
-
-    世界基石平台：7×7 不可破坏的初始立足点
-
-    世界之树：高 5 格，树干（世界枝干）、树叶（世界枝叶）可破坏，掉落木棍、树苗
-
-    安全出生点：树顶上方，防止卡方块
-
-核心资源循环
-阶段	方式	产出
-生命起始	砍伐世界之树	原木、木棍、树苗
-物质凝结	粗制滤网左键虚空萃取	铜粉尘、铁粉尘、虚空精华
-实体转化	石磨研磨圆石 → 沙砾	沙砾
-工业萌芽	木坩埚树叶榨水 + 淘洗沙砾	铜粒、铁粒
-
-金属进阶：粉尘 ×9 → 粒 ×1 → 粒 ×9 → 锭 ×1
-辅助配方：虚空精华 ×9 → 圆石 ×1；原木 ×1 ↔ 木棍 ×4
-工具与设备
-物品	用途	合成
-粗制滤网	左键虚空萃取（2 秒倒计时）	木棍×4 + 原木×1（四角+中心）
-石磨	右键研磨圆石 → 沙砾×3	圆石×8 + 木棍×1
-木坩埚	树叶加水（最多 1 格），淘洗沙砾得金属粒	原木×7（U 形）
-木镐	挖掘石磨、圆石等（耐久 70）	原木×3 + 木棍×2
-萃取与淘洗概率
-
-    粗制滤网：铜粉尘 40%、铁粉尘 40%、虚空精华 20%
-
-    木坩埚淘洗：铜粒 80%、铁粒 20%
-
-开发环境与测试
-
-    开发工具：VS Code（推荐）+ Luanti 5.15
-
-    一键测试：配置 .vscode/tasks.json 后按 Ctrl+Shift+B 自动删除旧世界并创建新世界
-
-    手动测试：bash scripts/launch.sh
-
-文件结构
-text
-
-skyblock_void/
-├── game/
-│   ├── game.conf
-│   └── mods/
-│       ├── skyblock/               # 核心模组
-│       │   ├── init.lua            # 入口
-│       │   ├── aliases.lua         # 地图生成器别名（singlenode）
-│       │   ├── nodes.lua           # 方块定义（基石、树干、树叶、圆石、沙砾等）
-│       │   ├── items.lua           # 物品定义（粉尘、金属粒/锭、滤网等）
-│       │   ├── mapgen.lua          # 世界生成（平台 + 世界之树）
-│       │   ├── growth.lua          # 树苗生长 ABM
-│       │   ├── hud.lua             # 萃取倒计时 HUD + 战利品表
-│       │   ├── extract.lua         # 滤网左键萃取逻辑
-│       │   ├── crafting.lua        # 合成配方
-│       │   ├── nodes_crafting.lua  # 石磨节点
-│       │   ├── nodes_cauldron.lua  # 木坩埚节点
-│       │   ├── player_model.lua    # 自定义玩家模型（当前禁用）
-│       │   ├── textures/           # 纹理
-│       │   └── models/             # 3D 模型（石磨等）
-│       └── player_api/             # 玩家 API（内置）
-├── scripts/
-│   └── launch.sh                   # 一键测试脚本
-├── Plan.md                         # 设计文档
-└── README.md                       # 本文件
-
-已知问题
-
-    玩家模型动画偶尔抽搐（glTF 与 player_api 兼容性问题，当前禁用自定义模型）
-
-    第一人称手臂材质丢失（可放置 character.png 皮肤文件临时解决）
-
-    部分物品（树叶、粉末）使用占位纹理，需要后续替换
-
-    启动日志中的 Block not found 警告无害，可忽略
-
-开发计划
-
-    自动筛分装置
-
-    岩浆生成器
-
-    地脉核心（生成下界生态岛）
-
-    虚空风暴事件
-
-    任务手册（Formspec 交互界面）
-
-    生命复苏（动物、村民）
-
-    最终目标：复原之杖
-
-许可证
-
-MIT
-ENDOFFILE
-text
-
-
+# 👟快速开始
+## 1.下载Luanti
+### 1.1. 安卓：[戳我](https://gh-proxy.oeg/https://github.com/luanti-org/luanti/releases/download/5.15.1/luanti-5.15.1-arm64-v8a.apk "戳我")
+### 1.2. iOS：没有啊QWQ
+### 1.3. Win：[戳我](https://github.com/luanti-org/luanti/releases/download/5.15.1/luanti-5.15.1-win64.zip "戳我")
+### 1.4. Linux：包管理器装！（包管理直接装Luanti）
+### 1.5. MacOS：注意：Arm版本的！！！[戳我](https://github.com/luanti-org/luanti/releases/download/5.15.1/luanti_5.15.1-macos12.3_arm64.zip "戳我")
+## 2. 🧱安装
+### 2.1. 下载仓库：[戳我](https://github.com/Little-Rani/Skyblock_For_Luanti/archive/refs/heads/main.zip "戳我")
+### 2.2. 打开Luanti，打开关于页面，点击打开用户数据目录
+### 2.3. 将刚才的仓库里的games移动到打开数据目录里的games文件夹里
+## 3. ⬆️启动！
+### 打开主界面，选择创建游戏，之后进入游戏即可！
+## 4. ❓问题反馈&✋加入我们
+### - 🐧QQ：3679702858
+### - 👗QQ讨论群：0000-0000-000
